@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" href="images/orchid-logo.png">
+<title>Arni Joshi – Brand &amp; Creative Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#000000; --ruby:#4A1A6A; --ember:#B98FD6; --blush:#F3DDD7; --dust:#A293AD; --line:#2C1A38; --oxblood:#4A1A6A;
+  --display:'Anton', Impact, 'Arial Narrow Bold', sans-serif;
+  --text:'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --pad:clamp(20px, 5vw, 96px);
+  --red:url("images/orchid-spray.webp"); --icon:url("images/orchid-logo.png");
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top, 0px);
+  padding-bottom:env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --black:#000000; --blush:#F3DDD7; } }
+:root[data-theme="dark"]{ --black:#000000; --blush:#F3DDD7; }
+*,*::before,*::after{box-sizing:inherit; margin:0; padding:0}
+html{scroll-behavior:smooth; scroll-padding-top:calc(72px + env(safe-area-inset-top, 0px)); background:var(--black)}
+body{background:var(--black); color:var(--blush); font-family:var(--text); font-size:clamp(16px, 1.1vw, 19px); line-height:1.55; overflow-x:hidden; -webkit-font-smoothing:antialiased}
+img{max-width:100%; display:block}
+a{color:inherit}
+a:focus-visible, button:focus-visible{outline:2px solid var(--ember); outline-offset:4px}
+::selection{background:var(--ruby); color:var(--blush)}
+
+/* progress + nav */
+.progress{position:fixed; top:0; left:0; height:3px; width:100%; transform-origin:0 50%; transform:scaleX(0); background:var(--ember); z-index:60}
+.nav{position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:calc(18px + env(safe-area-inset-top, 0px)) var(--pad) 18px; background:linear-gradient(180deg, rgba(0,0,0,.85), rgba(0,0,0,0)); }
+.nav-name{display:inline-flex; align-items:center; gap:10px; font-family:var(--display); font-size:22px; letter-spacing:.02em; text-decoration:none; color:var(--blush)}
+.logo{width:30px; height:30px; object-fit:contain}
+.nav-links{display:flex; gap:clamp(16px, 2.2vw, 40px); list-style:none}
+.nav-links a{text-decoration:none; font-weight:700; font-size:15px; color:var(--blush); padding:6px 0; border-bottom:2px solid transparent; transition:border-color .2s}
+.nav-links a:hover{border-color:var(--ember)}
+.nav-toggle{display:none; background:none; border:1px solid var(--blush); color:var(--blush); font:700 14px var(--text); padding:8px 14px; border-radius:999px; cursor:pointer}
+@media (max-width:860px){
+  .nav-toggle{display:block}
+  .nav-links{position:fixed; inset:0; flex-direction:column; justify-content:center; align-items:flex-start; gap:12px; padding:calc(96px + env(safe-area-inset-top, 0px)) var(--pad) var(--pad); background:var(--black); transform:translateY(-100%); transition:transform .35s ease; z-index:-1}
+  .nav-links a{font-family:var(--display); font-weight:400; font-size:44px}
+  .nav.open .nav-links{transform:none}
+}
+
+/* hero: recreated from Arni's cover design, positioned on a 1424×804 grid */
+.hero{position:relative; height:56.46vw; overflow:hidden; background:#000}
+.hero-video{position:absolute; right:-6vw; top:0; height:100%; width:auto; max-width:none; aspect-ratio:1080/1016; will-change:transform; -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 12%, #000 90%, transparent 100%); mask-image:linear-gradient(90deg, transparent 0%, #000 12%, #000 90%, transparent 100%)}
+.hero-shade{position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse 30% 34% at 86% 82%, rgba(0,0,0,.82) 0%, rgba(0,0,0,.5) 55%, rgba(0,0,0,0) 100%)}
+.hero-name, .hero-tag{text-shadow:0 2px 20px rgba(0,0,0,.85), 0 0 4px rgba(0,0,0,.6)}
+.hero-skills{position:absolute; top:3.2303vw; left:0; width:100%; height:1.6vw; list-style:none}
+.hero-skills a{position:absolute; top:0; font-weight:700; font-stretch:88%; font-size:1.5098vw; line-height:1; text-transform:uppercase; text-decoration:none; white-space:nowrap; color:#F9DBDB; border-bottom:2px solid transparent; transition:border-color .2s}
+.hero-skills a:hover{border-color:#F9DBDB}
+.hero-next{position:absolute; left:94.6vw; top:2.95vw; width:1.6vw; height:1.8vw; display:flex; align-items:center; justify-content:center; color:#F9DBDB}
+.hero-next svg{width:100%; height:100%}
+.hero-kicker{position:absolute; left:5.7584vw; top:8.4270vw; font-family:var(--display); font-size:5.1264vw; line-height:1; letter-spacing:-.045em; color:#4A1A6A}
+.hero-title{position:absolute; left:4.9157vw; top:13.764vw; font-family:var(--display); font-weight:400; font-size:20.0843vw; line-height:1; letter-spacing:-.008em; color:#4A1A6A; display:flex; white-space:nowrap}
+.hero-title span{display:inline-block; transform:translateY(40%); opacity:0; transition:transform 1s cubic-bezier(.2,.8,.1,1), opacity 1s}
+.loaded .hero-title span{transform:none; opacity:1}
+.hero-name{position:absolute; right:7.4438vw; top:36.4vw; font-weight:800; font-stretch:62%; font-size:4.3vw; line-height:1; letter-spacing:-.005em; color:#F9DBDB; white-space:nowrap}
+.hero-tag{position:absolute; right:7.3736vw; top:41.4vw; text-align:right; font-weight:600; font-stretch:68%; font-size:1.62vw; line-height:1.95vw; letter-spacing:.01em; color:#F9DBDB}
+.hero-tag span{display:block; margin-top:1.1236vw}
+.hero-name, .hero-tag{opacity:0; transition:opacity .9s .6s}
+.loaded .hero-name, .loaded .hero-tag{opacity:1}
+@media (min-width:761px){ .nav.at-top{opacity:0; pointer-events:none} }
+.nav{transition:opacity .3s}
+@media (max-width:760px){
+  .hero{height:auto; min-height:100svh; display:flex; flex-direction:column; justify-content:flex-end; padding:120px var(--pad) 48px}
+  .hero-skills, .hero-next{display:none}
+  .hero-video{right:-20vw; top:8vh; height:auto; width:125vw}
+  .hero-shade{background:linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.85) 85%)}
+  .hero-kicker, .hero-title, .hero-name, .hero-tag{position:relative; left:auto; right:auto; top:auto}
+  .hero-kicker{font-size:13vw}
+  .hero-title{font-size:19.5vw; margin-top:-1vw}
+  .hero-name{align-self:flex-end; font-size:11vw; margin-top:24px}
+  .hero-tag{align-self:flex-end; font-size:4.4vw; line-height:1.3; margin-top:14px; max-width:none}
+  .hero-tag span{margin-top:12px}
+}
+
+/* marquee */
+.ribbon{background:var(--blush); color:var(--ruby); overflow:hidden}
+.ribbon-track{display:flex; width:max-content; animation:slide 38s linear infinite}
+.ribbon-track p{font-family:var(--display); font-size:clamp(28px, 3.2vw, 54px); line-height:1; padding:18px 0; white-space:nowrap; text-transform:uppercase}
+.ribbon-track p img{display:inline-block; height:.9em; width:auto; margin:0 .45em; vertical-align:-.08em}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* shared */
+section{position:relative}
+.wrap{padding:clamp(80px, 12vw, 180px) var(--pad)}
+.h-xl{font-family:var(--display); font-weight:400; font-size:clamp(64px, 11vw, 200px); line-height:.9; text-transform:uppercase; color:var(--ruby)}
+.h-lg{font-family:var(--display); font-weight:400; font-size:clamp(48px, 7vw, 128px); line-height:.92; text-transform:uppercase}
+.h-md{font-weight:900; font-size:clamp(28px, 3vw, 52px); line-height:1; text-transform:uppercase; letter-spacing:-.01em}
+.lede{font-size:clamp(20px, 1.8vw, 30px); line-height:1.35; max-width:32ch}
+.muted{color:var(--dust)}
+.bg-flower{position:absolute; pointer-events:none; will-change:transform}
+
+.link{display:inline-flex; align-items:center; gap:10px; font-weight:700; text-decoration:none; padding:10px 20px; border-radius:999px; background:var(--ruby); color:var(--blush); transition:background .2s}
+.link:hover{background:#5E2688}
+.link.ghost{background:transparent; border:2px solid var(--ember)}
+.link.ghost:hover{background:var(--ruby); border-color:var(--ruby)}
+.back{display:inline-block; margin-top:28px; font-weight:700; color:var(--ember); text-decoration:none; border-bottom:1px solid currentColor}
+
+/* photo frames (placeholders until real photos go in) */
+.frame{position:relative; overflow:hidden; background:#120A18}
+.frame img.photo{width:100%; height:100%; object-fit:cover}
+.frame .ph{position:absolute; inset:0; background-color:#140B1C; background-image:var(--red); background-size:auto 84%; background-repeat:no-repeat; background-position:50% 50%; opacity:.9}
+.frame .ph::before{content:""; position:absolute; inset:0; background:rgba(20,11,28,.45)}
+.frame .ph::after{content:""; position:absolute; inset:14px; border:1px dashed rgba(243,221,215,.55)}
+.frame .ph-label{position:absolute; left:28px; bottom:24px; right:28px; font-weight:700; font-size:15px; color:var(--blush)}
+.frame.flip .ph{transform:scaleX(-1)}
+figure figcaption{font-style:italic; font-size:14px; color:var(--dust); margin-top:10px}
+.reveal .frame{clip-path:inset(0 0 100% 0); transition:clip-path 1.2s cubic-bezier(.2,.8,.1,1)}
+.reveal.in .frame{clip-path:inset(0 0 0 0)}
+
+/* issue */
+.issue{display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:clamp(32px, 5vw, 96px); align-items:start}
+.issue-list{list-style:none; border-top:1px solid var(--line)}
+.issue-list li{border-bottom:1px solid var(--line)}
+.issue-list a{display:flex; justify-content:space-between; align-items:baseline; gap:24px; padding:14px 0; text-decoration:none; transition:color .25s, padding .25s}
+.issue-list a span:first-child{font-family:var(--display); font-size:clamp(34px, 4.4vw, 76px); line-height:1; text-transform:uppercase}
+.issue-list a span:last-child{color:var(--dust); font-size:15px; text-align:right}
+.issue-list a:hover{color:var(--ember); padding-left:18px}
+
+/* about */
+.about{display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(32px, 6vw, 120px); align-items:center}
+.about .frame{aspect-ratio:4/5}
+.about-title{font-family:var(--display); font-weight:400; text-transform:uppercase; font-size:clamp(80px, 13vw, 240px); line-height:.85; color:var(--blush)}
+.about-title em{font-style:normal; display:block; color:var(--ruby); padding-left:.6em}
+.about .lede{margin-top:32px}
+.facts{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px 40px; margin-top:48px; border-top:1px solid var(--line); padding-top:28px}
+.facts dt{font-size:14px; color:var(--dust)}
+.facts dd{font-weight:700; font-size:clamp(17px, 1.3vw, 21px)}
+
+/* what I do */
+.what{overflow:hidden}
+.what .bg-flower{right:-6vw; top:12%; width:min(46vw, 700px); opacity:.5}
+.what-head{position:relative; max-width:14ch}
+.caps{position:relative; margin-top:clamp(48px, 7vw, 110px); border-top:1px solid rgba(243,221,215,.25)}
+.cap{display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:32px; align-items:baseline; padding:22px 0; border-bottom:1px solid rgba(243,221,215,.25)}
+.cap h3{font-family:var(--display); font-weight:400; font-size:clamp(40px, 6vw, 108px); line-height:.95; text-transform:uppercase}
+.cap p{font-size:clamp(17px, 1.4vw, 22px); max-width:30ch}
+
+/* résumé entries */
+.entries{margin-top:clamp(40px, 6vw, 88px); border-top:1px solid var(--line)}
+.entry{display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(24px, 5vw, 96px); padding:clamp(36px, 4vw, 64px) 0; border-bottom:1px solid var(--line)}
+.entry-side{align-self:start; position:sticky; top:96px}
+.entry-org{font-family:var(--display); font-weight:400; font-size:clamp(40px, 5vw, 88px); line-height:.95; text-transform:uppercase}
+.entry-role{font-style:italic; color:var(--ember); margin-top:12px; font-size:clamp(17px, 1.3vw, 21px)}
+.entry-date{color:var(--dust); margin-top:6px; font-size:15px}
+.entry ul{list-style:none; display:grid; gap:14px}
+.entry li{padding-left:26px; position:relative; max-width:62ch}
+.entry li::before{content:""; position:absolute; left:0; top:.3em; width:15px; height:15px; background:var(--icon) center/contain no-repeat}
+.entry li strong{color:var(--blush); font-weight:700}
+.entry-body{color:#D8C1BB}
+.highlight{margin-top:32px; display:flex; flex-wrap:wrap; align-items:center; gap:14px}
+.highlight p{font-style:italic; color:var(--dust); width:100%}
+.stats{display:flex; flex-wrap:wrap; gap:clamp(24px, 4vw, 64px); margin-top:32px}
+.stats p{font-family:var(--display); font-size:clamp(48px, 5.5vw, 96px); line-height:.9; color:var(--ember)}
+.stats span{display:block; font-family:var(--text); font-size:15px; color:var(--dust); margin-top:8px}
+
+/* dividers */
+.divider{background:var(--oxblood); overflow:hidden; min-height:92vh; display:flex; flex-direction:column; justify-content:flex-end}
+.divider .bg-flower{right:4vw; top:6%; width:min(44vw, 680px); opacity:.9}
+.divider .h-xl{color:var(--blush); position:relative; font-size:clamp(80px, 16vw, 300px)}
+.divider .lede{position:relative; margin-top:24px; font-weight:700}
+
+/* case studies */
+.case{display:grid; grid-template-columns:repeat(12, minmax(0,1fr)); gap:clamp(20px, 3vw, 48px); align-items:start}
+.case > figure{grid-column:1 / span 7}
+.case > .case-text{grid-column:8 / span 5; position:sticky; top:96px}
+.case.flip > figure{grid-column:6 / span 7; grid-row:1}
+.case.flip > .case-text{grid-column:1 / span 5; grid-row:1}
+.case .frame{aspect-ratio:4/5}
+.case-kicker{color:var(--dust); font-style:italic}
+.case-title{font-family:var(--display); font-weight:400; font-size:clamp(56px, 7vw, 132px); line-height:.9; text-transform:uppercase; color:var(--ruby); margin-top:8px}
+.meta{display:flex; flex-wrap:wrap; gap:14px 32px; margin-top:24px; padding:18px 0; border-block:1px solid var(--line)}
+.meta dt{font-size:13px; color:var(--dust)}
+.meta dd{font-weight:700}
+.parts{display:grid; gap:22px; margin-top:28px}
+.parts h4{font-size:14px; font-weight:700; color:var(--ember)}
+.parts p{color:#D8C1BB; max-width:46ch}
+.spread{display:grid; grid-template-columns:repeat(12, minmax(0,1fr)); grid-template-rows:auto auto; gap:clamp(12px, 2vw, 28px)}
+.spread .f1{grid-column:1 / span 7; grid-row:1 / span 2}
+.spread .f1 .frame{aspect-ratio:4/5}
+.spread .f2{grid-column:8 / span 5; align-self:end}
+.spread .f2 .frame{aspect-ratio:1/1}
+.spread .f3{grid-column:9 / span 4}
+.spread .f3 .frame{aspect-ratio:3/4}
+.spread-text{display:grid; grid-template-columns:repeat(12, minmax(0,1fr)); gap:clamp(20px, 3vw, 48px); margin-top:clamp(32px, 4vw, 64px)}
+.spread-text > div:first-child{grid-column:1 / span 5}
+.spread-text > .parts{grid-column:7 / span 6; grid-template-columns:1fr 1fr; margin-top:0}
+.pull{font-family:var(--display); font-size:clamp(36px, 3.8vw, 68px); line-height:.95; text-transform:uppercase; color:var(--ember); margin-top:28px}
+.full{position:relative; min-height:88vh; display:flex; align-items:flex-end; overflow:hidden}
+.full .frame{position:absolute; inset:0}
+.full .frame::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.92) 100%)}
+.full-inner{position:relative; padding:0 var(--pad) clamp(40px, 6vw, 80px); width:100%; display:grid; grid-template-columns:minmax(0,6fr) minmax(0,6fr); gap:clamp(24px, 4vw, 64px); align-items:end}
+.full .case-title{font-size:clamp(110px, 20vw, 360px); color:var(--blush); line-height:.8}
+.full .parts{grid-template-columns:1fr 1fr}
+.full-wrap{padding:clamp(80px, 12vw, 180px) 0}
+
+/* campaigns */
+.camp{display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(24px, 5vw, 96px); align-items:center}
+.camp.flip > figure{order:2}
+.camp .frame{aspect-ratio:4/5}
+.camp-rows{margin-top:28px; border-top:1px solid var(--line)}
+.camp-rows div{display:grid; grid-template-columns:120px minmax(0,1fr); gap:20px; padding:14px 0; border-bottom:1px solid var(--line)}
+.camp-rows dt{font-weight:700; font-size:14px; color:var(--ember); padding-top:3px}
+.camp-rows dd{color:#D8C1BB}
+.stack{display:grid; gap:clamp(96px, 12vw, 200px)}
+
+/* for you */
+.offers{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:0 clamp(32px, 5vw, 96px); margin-top:clamp(40px, 6vw, 88px)}
+.offer{border-top:2px solid var(--ruby); padding:28px 0 40px}
+.offer h3{font-weight:900; font-size:clamp(24px, 2.3vw, 38px); line-height:1.1}
+.offer p{margin-top:10px; color:#D8C1BB; max-width:40ch}
+.cta{margin-top:24px; display:flex; flex-wrap:wrap; gap:20px; align-items:center; font-size:clamp(18px, 1.5vw, 24px); font-weight:700}
+
+/* skills */
+.skills{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:clamp(24px, 4vw, 64px); margin-top:clamp(40px, 6vw, 88px)}
+.skills h3{font-weight:900; text-transform:uppercase; font-size:clamp(18px, 1.5vw, 24px); padding-bottom:14px; border-bottom:2px solid var(--ruby)}
+.skills ul{list-style:none; margin-top:16px; display:grid; gap:10px; color:#D8C1BB}
+
+/* taste */
+.board{display:grid; grid-template-columns:repeat(6, minmax(0,1fr)); grid-auto-rows:clamp(120px, 14vw, 240px); gap:clamp(10px, 1.4vw, 20px); margin-top:clamp(40px, 6vw, 88px)}
+.board figure{position:relative}
+.board .frame{height:100%}
+.board figcaption{position:absolute; left:16px; right:16px; bottom:14px; margin:0; font-style:normal; color:var(--blush); font-weight:700; font-size:14px; line-height:1.3}
+.board figcaption span{display:block; font-weight:400; font-style:italic; color:#E4CBC5}
+.b1{grid-column:span 3; grid-row:span 2} .b2{grid-column:span 3} .b3{grid-column:span 2} .b4{grid-column:span 1} .b5{grid-column:span 2; grid-row:span 2} .b6{grid-column:span 4}
+.board .solid{height:100%; background:var(--ruby)}
+
+/* words */
+.words{overflow:hidden}
+.words .bg-flower{left:-10vw; top:5%; width:min(36vw, 560px); opacity:.35}
+.words-inner{position:relative; margin-left:auto; max-width:1100px}
+.quote-mark{font-family:var(--display); font-size:clamp(140px, 16vw, 280px); line-height:.7; color:var(--ruby)}
+.quote{font-weight:700; font-size:clamp(28px, 3.2vw, 56px); line-height:1.2; margin-top:12px}
+.cite{margin-top:24px; color:var(--ember); font-weight:700}
+.quote-2{font-size:clamp(20px, 1.9vw, 30px); line-height:1.35; margin-top:64px; padding-top:40px; border-top:1px solid var(--line); color:#D8C1BB}
+
+/* contact */
+.contact{min-height:100vh; overflow:hidden; display:flex; flex-direction:column; justify-content:center}
+.contact .bg-flower{right:0vw; top:8%; width:min(40vw, 640px); opacity:.85}
+.contact-inner{position:relative}
+.contact .h-xl{font-size:clamp(80px, 15vw, 280px); color:var(--blush); position:relative}
+.contact-tag{font-weight:700; font-size:clamp(17px, 1.5vw, 24px); line-height:1.3; margin-top:14px; text-transform:uppercase; max-width:24ch}
+.contact-links{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:24px; margin-top:clamp(40px, 5vw, 72px); max-width:980px}
+.contact-links dt{font-size:14px; color:var(--dust)}
+.contact-links dd a{font-weight:700; font-size:clamp(18px, 1.5vw, 24px); text-decoration:none; border-bottom:1px solid var(--ember)}
+footer{display:flex; justify-content:space-between; gap:24px; padding:28px var(--pad); border-top:1px solid var(--line); color:var(--dust); font-size:14px}
+footer a{color:var(--blush)}
+
+
+.frame video.photo{width:100%; height:100%; object-fit:cover; display:block}
+.video-toggle{position:absolute; top:clamp(16px,2vw,28px); right:var(--pad); z-index:2; background:rgba(0,0,0,.55); color:var(--blush); border:1px solid var(--blush); border-radius:999px; font:700 14px var(--text); padding:10px 18px; min-height:44px; cursor:pointer}
+.video-toggle:hover{background:var(--ruby)}
+/* added: image strips */
+.strip{display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:clamp(10px, 1.4vw, 20px); margin-top:clamp(16px, 2vw, 28px)}
+.strip .frame{aspect-ratio:var(--ar, 4/5)}
+.strip figure figcaption{margin-top:8px}
+@media (max-width:900px){
+  .issue, .about, .entry, .camp, .full-inner, .spread-text{grid-template-columns:minmax(0,1fr)}
+  .entry-side, .case > .case-text{position:static}
+  .case > figure, .case > .case-text, .case.flip > figure, .case.flip > .case-text{grid-column:1 / -1; grid-row:auto}
+  .spread .f1{grid-column:1 / -1; grid-row:auto} .spread .f2{grid-column:1 / span 6} .spread .f3{grid-column:7 / span 6}
+  .spread-text > div:first-child, .spread-text > .parts{grid-column:1 / -1}
+  .camp.flip > figure{order:0}
+  .cap{grid-template-columns:minmax(0,1fr); gap:8px}
+  .offers, .skills{grid-template-columns:minmax(0,1fr)}
+  .board{grid-template-columns:repeat(2, minmax(0,1fr)); grid-auto-rows:180px}
+  .b1,.b2,.b3,.b4,.b5,.b6{grid-column:span 1; grid-row:span 1} .b1{grid-column:span 2}
+  .full .parts, .spread-text > .parts{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .ribbon-track{animation:none}
+  .hero-title span, .hero-name, .hero-tag{transition:none; transform:none; opacity:1}
+  .reveal .frame{clip-path:none; transition:none}
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Main">
+  <a class="nav-name" href="#top"><img class="logo" src="images/orchid-logo.png" alt="">Arni Joshi</a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#cs-mahv">MAHV</a></li>
+    <li><a href="#campaigns">Campaigns</a></li>
+    <li><a href="#case-studies">Case studies</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <img class="hero-video" src="images/orchid-bloom-animation.webp" alt="" aria-hidden="true">
+  <div class="hero-shade" aria-hidden="true"></div>
+  <ul class="hero-skills" aria-label="What I do">
+    <li><a href="#what" style="left:7.2331vw">Brand Identity</a></li>
+    <li><a href="#what" style="left:26.8vw">Art Direction</a></li>
+    <li><a href="#what" style="left:45.5vw">Editorial Design</a></li>
+    <li><a href="#what" style="left:67vw">Campaigns</a></li>
+    <li><a href="#what" style="left:81.9vw">Events</a></li>
+  </ul>
+  <a class="hero-next" href="#issue" aria-label="Scroll to contents"><svg viewBox="0 0 12 20" aria-hidden="true"><path d="M2 2l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3"/></svg></a>
+  <p class="hero-kicker">CREATIVE</p>
+  <h1 class="hero-title" aria-label="Creative Portfolio"><span>P</span><span>O</span><span>R</span><span>T</span><span>F</span><span>O</span><span>L</span><span>I</span><span>O</span></h1>
+  <p class="hero-name">Arni Joshi</p>
+  <p class="hero-tag">Builds the brand, designs<br>the look, and fills<br>the room.<span>Based in<br>Seattle, WA</span></p>
+</header>
+
+<div class="ribbon" aria-hidden="true">
+  <div class="ribbon-track">
+    <p>Brand identity<img src="images/orchid-logo.png" alt="">Art direction<img src="images/orchid-logo.png" alt="">Editorial design<img src="images/orchid-logo.png" alt="">Campaigns<img src="images/orchid-logo.png" alt="">Event experiences<img src="images/orchid-logo.png" alt=""></p>
+    <p>Brand identity<img src="images/orchid-logo.png" alt="">Art direction<img src="images/orchid-logo.png" alt="">Editorial design<img src="images/orchid-logo.png" alt="">Campaigns<img src="images/orchid-logo.png" alt="">Event experiences<img src="images/orchid-logo.png" alt=""></p>
+  </div>
+</div>
+
+<section class="wrap" id="issue" aria-labelledby="issue-h">
+  <div class="issue">
+    <div>
+      <h2 class="h-lg" id="issue-h">In this issue</h2>
+      <p class="muted" style="margin-top:20px; max-width:30ch">Brand identities, magazines, campaigns and events, from fashion runways to a music group's debut album.</p>
+    </div>
+    <ul class="issue-list">
+      <li><a href="#about"><span>About me</span><span>Who I am</span></a></li>
+      <li><a href="#cs-mahv"><span>MAHV</span><span>Brand identity &amp; art direction</span></a></li>
+      <li><a href="#campaigns"><span>Campaigns</span><span>ASOS, LV Global Fusion</span></a></li>
+      <li><a href="#case-studies"><span>Case studies</span><span>Tasveer, Grandiosle, Viridescent, Rogue</span></a></li>
+      <li><a href="#contact"><span>Contact</span><span>Let's talk</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="wrap" id="about" aria-labelledby="about-h">
+  <div class="about">
+    <figure class="reveal">
+      <div class="frame"><img class="photo" src="images/headshot.jpg" alt="Portrait of Arni Joshi in a black blazer" style="object-position:50% 25%"></div>
+    </figure>
+    <div>
+      <h2 class="about-title" id="about-h">About<em>me</em></h2>
+      <p class="lede">Raised between Bengaluru and Delhi, then Ontario, now Seattle. Moving across cultures taught me how a brand lands differently with every audience, and how to build moments people remember.</p>
+      <dl class="facts">
+        <div><dt>Based in</dt><dd>Seattle, WA</dd></div>
+        <div><dt>Studying</dt><dd>Business Administration, Marketing, UW Bothell, 2029</dd></div>
+        <div><dt>Rooted in</dt><dd>Fashion, dance and event production</dd></div>
+        <div><dt>Heading toward</dt><dd>Fashion, beauty and the music industry</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="wrap what" id="what" aria-labelledby="what-h">
+  <img class="bg-flower" src="images/orchid-spray.webp" data-speed="0.12" alt="">
+  <h2 class="h-xl what-head" id="what-h" style="color:var(--blush)">Build it. Style it. Fill the room.</h2>
+  <div class="caps">
+    <div class="cap"><h3>Brand identity</h3><p>Logos, color, type and art direction, built from the concept up so everything feels like one world.</p></div>
+    <div class="cap"><h3>Art direction</h3><p>Shoots, music videos, fashion and styling with one consistent look.</p></div>
+    <div class="cap"><h3>Editorial design</h3><p>Magazines, invitations, posters and decks with real typographic care.</p></div>
+    <div class="cap"><h3>Campaigns</h3><p>From brief to big idea to launch-ready visuals across every channel.</p></div>
+    <div class="cap"><h3>Trend research</h3><p>Reading culture early across fashion, beauty and music, and turning it into creative direction.</p></div>
+  </div>
+</section>
+
+<section class="wrap divider" id="campaigns" aria-labelledby="mc-h" style="background:var(--black)">
+  <img class="bg-flower" src="images/orchid-spray.webp" data-speed="0.15" alt="" style="transform:scaleX(-1); opacity:.7">
+  <h2 class="h-xl" id="mc-h">Brand<br>campaigns</h2>
+  <p class="lede">Integrated campaigns for real brands, built for DECA competition.</p>
+</section>
+
+<div class="wrap stack">
+  <article class="camp" id="mc-asos">
+    <figure class="reveal"><div class="frame"><img class="photo" src="images/asos.jpg" alt="ASOS fashion magazine cover"></div><figcaption>The campaign magazine cover</figcaption></figure>
+    <div>
+      <p class="case-kicker">Integrated campaign, DECA 2023</p>
+      <h3 class="case-title">ASOS: Vogue Around the World</h3>
+      <dl class="camp-rows">
+        <div><dt>Brief</dt><dd>An integrated marketing campaign for ASOS.</dd></div>
+        <div><dt>Idea</dt><dd>A fashion magazine as the campaign's centerpiece, spotlighting great looks and labels from around the world.</dd></div>
+        <div><dt>Execution</dt><dd>I designed the magazine: the cover and feature pages for Milin, Fuata Moyo and Lucky Chouette, each with its own type treatment inside one editorial system.</dd></div>
+        <div><dt>Team</dt><dd>With Sanjana Pusarla</dd></div>
+      </dl>
+      <div class="strip">
+        <figure class="reveal"><div class="frame" style="--ar:3/4"><img class="photo" src="images/milin1.jpg" alt="Magazine page: Milin"></div></figure>
+        <figure class="reveal"><div class="frame" style="--ar:3/4"><img class="photo" src="images/fuata.jpg" alt="Magazine page: Fuata Moyo" style="object-position:50% 20%"></div></figure>
+        <figure class="reveal"><div class="frame" style="--ar:3/4"><img class="photo" src="images/lucky.jpg" alt="Magazine page: Lucky Chouette"></div></figure>
+      </div>
+      <p class="muted" style="font-size:14px; margin-top:10px; font-style:italic">Design and layout by Arni Joshi; photography from the featured brands.</p>
+    </div>
+  </article>
+  <article class="camp flip" id="mc-lv">
+    <figure class="reveal"><div class="frame"><img class="photo" src="images/lv.jpg" alt="LV Global Fusion campaign cover"></div><figcaption>LV Global Fusion campaign cover</figcaption></figure>
+    <div>
+      <p class="case-kicker">Integrated campaign, DECA</p>
+      <h3 class="case-title">Louis Vuitton: LV Global Fusion</h3>
+      <dl class="camp-rows">
+        <div><dt>Brief</dt><dd>An integrated marketing campaign for Louis Vuitton.</dd></div>
+        <div><dt>Date</dt><dd>January 2025</dd></div>
+        <div><dt>Team</dt><dd>With Sanjana Pusarla</dd></div>
+      </dl>
+    </div>
+  </article>
+</div>
+
+<section class="wrap divider" id="case-studies" aria-labelledby="cs-h">
+  <img class="bg-flower" src="images/orchid-spray.webp" data-speed="0.15" alt="">
+  <h2 class="h-xl" id="cs-h">Case<br>studies</h2>
+  <p class="lede">The vision, the idea and the execution behind the work.</p>
+</section>
+
+<article class="full" id="cs-mahv">
+  <div class="frame"><video class="photo mahv-video" src="images/mahv_mv.mp4" poster="images/mahv_mv_poster.jpg" autoplay muted loop playsinline aria-label="MAHV music video, playing silently in the background"></video></div>
+  <button type="button" class="video-toggle" aria-pressed="false">Pause video</button>
+  <div class="full-inner">
+    <div>
+      <p class="case-kicker">Project, 2024–25 · Founder &amp; Creative Director</p>
+      <h3 class="case-title">MAHV</h3>
+      <a class="back" href="#issue">Back to contents</a>
+    </div>
+    <div class="parts">
+      <div><h4>The vision</h4><p>A music group with a dark, editorial, city-lit look and a violet signature.</p></div>
+      <div><h4>The idea</h4><p>One identity across everything: the MAHV monogram on deep violet, carried into the HAVEM album art, photography and video.</p></div>
+      <div><h4>Execution</h4><p>Built the brand from concept to logo, graphics and photography, and art-directed the music videos, fashion and styling.</p></div>
+      <div><h4>Result</h4><p>Debut album <em>HAVEM</em>, released October 19, 2025.</p></div>
+    </div>
+  </div>
+</article>
+<section class="wrap" aria-label="MAHV gallery" style="padding-top:clamp(40px, 5vw, 80px)">
+  <div class="strip" style="grid-template-columns:repeat(auto-fit, minmax(220px, 1fr))">
+    <figure class="reveal"><div class="frame" style="--ar:1/1"><img class="photo" src="images/mahv_monogram.jpg" alt="MAHV monogram logo in white strokes on violet"></div><figcaption>MAHV logo</figcaption></figure>
+    <figure class="reveal"><div class="frame" style="--ar:1/1"><img class="photo" src="images/mahv_album.jpg" alt="HAVEM album cover"></div><figcaption>HAVEM album cover</figcaption></figure>
+    <figure class="reveal"><div class="frame" style="--ar:1/1"><img class="photo" src="images/mahv_bw.jpg" alt="Black and white group portrait by the lake"></div><figcaption>Lakefront shoot</figcaption></figure>
+    <figure class="reveal"><div class="frame" style="--ar:1/1"><img class="photo" src="images/mahv_night.jpg" alt="MAHV at night on the Seattle waterfront" style="object-position:50% 60%"></div><figcaption>Waterfront shoot</figcaption></figure>
+  </div>
+  <div class="strip" style="grid-template-columns:repeat(auto-fit, minmax(220px, 1fr))">
+    <figure class="reveal"><div class="frame" style="--ar:16/10"><img class="photo" src="images/mv_a.jpg" alt="Music video still, yellow stairwell"></div></figure>
+    <figure class="reveal"><div class="frame" style="--ar:16/10"><img class="photo" src="images/mv_b.jpg" alt="Music video still, waterfront at dusk"></div></figure>
+    <figure class="reveal"><div class="frame" style="--ar:16/10"><img class="photo" src="images/mv_c.jpg" alt="Music video still, dance on a court"></div></figure>
+    <figure class="reveal"><div class="frame" style="--ar:16/10"><img class="photo" src="images/mv_d.jpg" alt="Music video still under a tree"></div></figure>
+  </div>
+  <p class="muted" style="font-size:14px; margin-top:12px; font-style:italic">Music video stills and shoots: concept, art direction, fashion and styling by Arni Joshi.</p>
+</section>
+
+<div class="wrap stack">
+
+  <article class="case" id="cs-tasveer">
+    <figure class="reveal">
+      <div class="frame" style="aspect-ratio:16/9"><img class="photo" src="images/tas_cover.jpg" alt="Tasveer x Labubu pitch deck cover"></div>
+      <figcaption>Tasveer × Labubu: Stories We Carry, pitch deck cover</figcaption>
+      <div class="strip">
+        <div class="frame" style="--ar:16/9"><img class="photo" src="images/tas_concept.jpg" alt="Pitch deck slide: The Concept"></div>
+        <div class="frame" style="--ar:16/9"><img class="photo" src="images/tas_why.jpg" alt="Pitch deck slide: Why Pop Mart and Labubu"></div>
+      </div>
+    </figure>
+    <div class="case-text">
+      <p class="case-kicker">Experience, Tasveer</p>
+      <h3 class="case-title">Tasveer × Pop Mart</h3>
+      <dl class="meta"><div><dt>Role</dt><dd>Events Coordinator</dd></div><div><dt>For</dt><dd>Tasveer Film Festival</dd></div><div><dt>Year</dt><dd>2025–26</dd></div></dl>
+      <div class="parts">
+        <div><h4>The vision</h4><p>South Asian culture is having a global moment, but collectibles barely reflect it, even as Gen Z and millennial diaspora fans drive collectible trends.</p></div>
+        <div><h4>The idea</h4><p>A limited-edition series of 3–5 Labubu figures inspired by South Asian film, in custom boxes drawn from film posters and cultural motifs, with QR codes linking to festival trailers.</p></div>
+        <div><h4>Execution</h4><p>Designed a 9-slide partnership deck: why now, why Tasveer, the concept, merch strategy, cross-promotion and next steps.</p></div>
+      </div>
+      <a class="back" href="#issue">Back to contents</a>
+    </div>
+  </article>
+
+  <article class="case flip" id="cs-signage">
+    <figure class="reveal">
+      <div class="frame" style="aspect-ratio:1206/873"><img class="photo" src="images/tas_sign1.jpg" alt="Signage mockup: navy and gold marquee reading Tasveer Film Arts Center"></div>
+      <figcaption>Direction 1: classic navy-and-gold theater marquee</figcaption>
+      <div class="frame" style="aspect-ratio:1206/863; margin-top:clamp(16px, 2vw, 28px)"><img class="photo" src="images/tas_sign2.jpg" alt="Signage mockup: modern lowercase tasveer Film Center marquee with vertical blade sign"></div>
+      <figcaption>Direction 2: modern lowercase wordmark and blade sign</figcaption>
+    </figure>
+    <div class="case-text">
+      <p class="case-kicker">Experience, Tasveer</p>
+      <h3 class="case-title">Tasveer Film Center signage</h3>
+      <dl class="meta"><div><dt>Role</dt><dd>Events Coordinator</dd></div><div><dt>For</dt><dd>Tasveer</dd></div><div><dt>Type</dt><dd>Environmental design</dd></div></dl>
+      <div class="parts">
+        <div><h4>The vision</h4><p>Give Tasveer's rebrand of the Ark Lodge a building that announces itself as a film center from across the street.</p></div>
+        <div><h4>The idea</h4><p>Two directions: a classic theater marquee in navy and gold that honors the building's history, and a cleaner modern take with a lowercase wordmark and vertical blade sign.</p></div>
+        <div><h4>Execution</h4><p>Mocked up both directions on a photo of the real facade, including the frieze lettering, marquee, reader boards and Tasveer's mascot on the wall.</p></div>
+      </div>
+      <a class="back" href="#issue">Back to contents</a>
+    </div>
+  </article>
+
+  <article class="case" id="cs-grandiosle">
+    <figure class="reveal">
+      <div class="frame"><img class="photo" src="images/grandiosle.jpg" alt="Grandiosle magazine Issue 1 cover"></div>
+      <figcaption>Grandiosle, Issue 1, September 2023</figcaption>
+    </figure>
+    <div class="case-text">
+      <p class="case-kicker">Experience, Grandiosle</p>
+      <h3 class="case-title">Grandiosle magazine</h3>
+      <dl class="meta"><div><dt>Role</dt><dd>Marketing &amp; Creative Intern</dd></div><div><dt>For</dt><dd>Grandiosle LLC</dd></div><div><dt>Year</dt><dd>2023</dd></div></dl>
+      <div class="parts">
+        <div><h4>The vision</h4><p>Carry the designer's runway collection off the stage and onto the page.</p></div>
+        <div><h4>The idea</h4><p>Issue 1: summer trends, fresh Indian styles and the runway show, featuring Shagun Agarwal's collection.</p></div>
+        <div><h4>Execution</h4><p>Designed and edited the issue: masthead, cover typography and layout, in Canva.</p></div>
+      </div>
+      <a class="back" href="#issue">Back to contents</a>
+    </div>
+  </article>
+
+  <article id="cs-viridescent">
+    <div class="spread">
+      <figure class="f1 reveal"><div class="frame"><img class="photo" src="images/vir_run1.jpg" alt="Model walking the runway through the audience"></div><figcaption>On the runway, January 7, 2024</figcaption></figure>
+      <figure class="f2 reveal"><div class="frame"><img class="photo" src="images/vir_poster.jpg" alt="Viridescent Runway event poster"></div><figcaption>Ticketing poster</figcaption></figure>
+      <figure class="f3 reveal"><div class="frame"><img class="photo" src="images/vir_invite.jpg" alt="Viridescent Runway invitation"></div><figcaption>Invitation</figcaption></figure>
+    </div>
+    <div class="spread-text">
+      <div>
+        <p class="case-kicker">Project, 2023–24</p>
+        <h3 class="case-title">Viridescent Runway</h3>
+        <dl class="meta"><div><dt>Role</dt><dd>Producer &amp; PM</dd></div><div><dt>Partner</dt><dd>Prairie Underground</dd></div></dl>
+        <p class="pull">151 guests. 60 volunteers. 40% profit recovered.</p>
+        <a class="back" href="#issue">Back to contents</a>
+      </div>
+      <div class="parts">
+        <div><h4>The vision</h4><p>Show that sustainable fashion belongs on the red carpet.</p></div>
+        <div><h4>The idea</h4><p>"Walking the path of sustainability": one visual world carried from the gold-framed invitation and ticketing poster to the stage and a fashion magazine.</p></div>
+        <div><h4>Execution</h4><p>Designed the invitation, poster and Spring 2024 magazine featuring Prairie Underground, led a 60-person volunteer team and a social campaign on Instagram, WeChat and video, and secured a Seattle talent agency for the lineup.</p></div>
+        <div><h4>Result</h4><p>151 attendees, 40% profit recovered, and guests including the Mayor of Bellevue and the Director of NW Fashion District.</p></div>
+      </div>
+    </div>
+    <div class="strip" style="grid-template-columns:repeat(auto-fit, minmax(220px, 1fr))">
+      <figure class="reveal"><div class="frame" style="--ar:3/4"><img class="photo" src="images/vir_mag_cover.jpg" alt="Viridescent Runway fashion magazine cover, Spring 2024"></div><figcaption>The magazine: Spring 2024 cover</figcaption></figure>
+      <figure class="reveal"><div class="frame" style="--ar:3/4"><img class="photo" src="images/vir_mag_p1.jpg" alt="Magazine page featuring Prairie Underground"></div><figcaption>Prairie Underground feature</figcaption></figure>
+      <figure class="reveal"><div class="frame" style="--ar:3/4"><img class="photo" src="images/vir_mag_p2.jpg" alt="Magazine page: Prairie Underground Spring"></div><figcaption>Prairie Underground Spring</figcaption></figure>
+    </div>
+    <div class="strip" style="grid-template-columns:repeat(auto-fit, minmax(280px, 1fr))">
+      <figure class="reveal"><div class="frame" style="--ar:16/10"><img class="photo" src="images/vir_run2.jpg" alt="Model on stage against a blue backdrop"></div></figure>
+      <figure class="reveal"><div class="frame" style="--ar:16/10"><img class="photo" src="images/vir_final.jpg" alt="Finale lineup of all models on stage"></div><figcaption>The finale</figcaption></figure>
+    </div>
+  </article>
+
+  <article class="case flip" id="cs-rogue">
+    <figure class="reveal">
+      <div class="frame"><img class="photo" src="images/rogue_paper.jpg" alt="Rogue business plan cover"></div>
+      <figcaption>Rogue business plan cover</figcaption>
+      <div class="strip">
+        <div class="frame" style="--ar:16/9"><img class="photo" src="images/rogue_d2.jpg" alt="Pitch deck title slide"></div>
+        <div class="frame" style="--ar:16/9"><img class="photo" src="images/rogue_d4.jpg" alt="Pitch deck slide introducing Rogue"></div>
+        <div class="frame" style="--ar:16/9"><img class="photo" src="images/rogue_d15.jpg" alt="Pitch deck slide: unique selling factors"></div>
+        <div class="frame" style="--ar:16/9"><img class="photo" src="images/rogue_d24.jpg" alt="Pitch deck slide: marketing strategy"></div>
+      </div>
+    </figure>
+    <div class="case-text">
+      <p class="case-kicker">Project, DECA 2024–25</p>
+      <h3 class="case-title">Rogue: JYP in India</h3>
+      <dl class="meta"><div><dt>Role</dt><dd>Lead Strategist</dd></div><div><dt>Client</dt><dd>JYP Entertainment</dd></div></dl>
+      <div class="parts">
+        <div><h4>The vision</h4><p>India has 1.4 billion people, 65% of them under 35, and a fast-growing K-pop fanbase, but little representation in global pop.</p></div>
+        <div><h4>The idea</h4><p>Rogue, an Indian girl group blending Indian culture with K-pop, backed by a market-expansion and brand strategy built on cultural analysis and trend forecasting.</p></div>
+        <div><h4>Execution</h4><p>Researched target markets, market entry and risk, then designed the business plan and a 30-slide pitch deck in one concert-lit violet system.</p></div>
+        <div><h4>Result</h4><p>4th statewide and an ICDC 2025 qualifier. The forecast was later validated when HYBE launched HYBE India.</p></div>
+      </div>
+      <a class="back" href="#issue">Back to contents</a>
+    </div>
+  </article>
+</div>
+
+<section class="wrap contact" id="contact" aria-labelledby="ct-h">
+  <img class="bg-flower" src="images/orchid-spray.webp" data-speed="0.14" alt="">
+  <div class="contact-inner">
+    <h2 class="h-xl" id="ct-h">Let's work together.</h2>
+    <p class="contact-tag">Builds the brand, designs the look, and fills the room.</p>
+    <dl class="contact-links">
+      <div><dt>Email</dt><dd><a href="mailto:arnihjo@gmail.com">arnihjo@gmail.com</a></dd></div>
+      <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/arnih-joshi" target="_blank" rel="noopener">linkedin.com/in/arnih-joshi</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <p style="display:flex; align-items:center; gap:10px"><img class="logo" src="images/orchid-logo.png" alt="">Arni Joshi, Creative Portfolio 2026</p>
+  <a href="#top">Back to top</a>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
+  if(reduce){ document.querySelector('.hero-video').src = 'images/orchid-bloom-still.jpg'; }
+  var spans = document.querySelectorAll('.hero-title span');
+  spans.forEach(function(s,i){ s.style.transitionDelay = (i*0.05)+'s'; });
+
+  var nav = document.querySelector('.nav'), btn = document.querySelector('.nav-toggle');
+  btn.addEventListener('click', function(){ var o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o); btn.textContent = o ? 'Close' : 'Menu'; });
+  document.querySelectorAll('.nav-links a').forEach(function(a){ a.addEventListener('click', function(){ nav.classList.remove('open'); btn.setAttribute('aria-expanded', false); btn.textContent='Menu'; }); });
+
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){ if(reduce) el.classList.add('in'); else io.observe(el); });
+
+
+  var mv = document.querySelector('.mahv-video'), vt = document.querySelector('.video-toggle');
+  if(mv && vt){
+    function setBtn(){ vt.textContent = mv.paused ? 'Play video' : 'Pause video'; vt.setAttribute('aria-pressed', mv.paused); }
+    if(reduce){ mv.removeAttribute('autoplay'); mv.pause(); }
+    vt.addEventListener('click', function(){ if(mv.paused){ var p = mv.play(); if(p && p.catch) p.catch(function(){}); } else { mv.pause(); } });
+    mv.addEventListener('play', setBtn); mv.addEventListener('pause', setBtn); setBtn();
+  }
+  var bar = document.querySelector('.progress');
+  var movers = [].slice.call(document.querySelectorAll('[data-speed]'));
+  var heroFlower = document.querySelector('.hero-video'), hero = document.querySelector('.hero');
+  var base = movers.map(function(el){ return el.style.transform || ''; });
+  var ticking = false;
+  function frame(){
+    ticking = false;
+    var h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (h > 0 ? scrollY / h : 0) + ')';
+    nav.classList.toggle('at-top', scrollY < hero.offsetHeight * 0.6);
+    if(!reduce && scrollY < hero.offsetHeight) heroFlower.style.transform = 'translate3d(0,' + (scrollY*0.3).toFixed(1) + 'px,0)';
+    if(reduce) return;
+    movers.forEach(function(el, i){
+      var r = el.parentElement.getBoundingClientRect();
+      if(r.bottom < -200 || r.top > innerHeight + 200) return;
+      var d = (r.top + r.height/2 - innerHeight/2) * -parseFloat(el.dataset.speed);
+      var rot = d * 0.02;
+      el.style.transform = base[i] + ' translate3d(0,' + d.toFixed(1) + 'px,0) rotate(' + rot.toFixed(2) + 'deg)';
+    });
+  }
+  addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(frame); } }, {passive:true});
+  addEventListener('resize', frame);
+  frame();
+})();
+</script>
+</body>
+</html>
